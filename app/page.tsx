@@ -1,101 +1,112 @@
-import Image from "next/image";
+'use client'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import Navbar from './components/Navbar'
+import Carousel from './components/Carousel'
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const naturopathyImages = [
+    { src: '/landing/naturopathy/20201025_113534.jpg?height=400&width=600&text=Naturopathy 1', alt: 'Naturopathy 1' },
+    { src: '/landing/naturopathy/IMG_20210630_204810.jpg?height=400&width=600&text=Naturopathy 1', alt: 'Naturopathy 2' },
+    { src: '/landing/naturopathy/IMG_20210822_181835.jpg?height=400&width=600&text=Naturopathy 1', alt: 'Naturopathy 3' },
+  ]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const sewingImages = [
+    { src: '/landing/sewing/IMG-20200828-WA0012.jpg?height=400&width=600&text=Sewing 1', alt: 'Sewing 1' },
+    { src: '/landing/sewing/IMG-20201117-WA0000.jpg?height=400&width=600&text=Sewing 2', alt: 'Sewing 2' },
+    { src: '/landing/sewing/IMG_20210630_205523.jpg?height=400&width=600&text=Sewing 3', alt: 'Sewing 3' },
+  ]
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <section className="relative h-[60vh] flex items-center justify-center">
+          <Image
+            src="/naturopathy.jpg"
+            alt="Hero background"
+            layout="fill"
+            objectFit="cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+          <div className="relative z-10 text-center text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Our World</h1>
+            <p className="text-xl md:text-2xl">Discover the perfect blend of nature and creativity</p>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-16">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6 flex flex-col">
+              <h2 className="text-3xl font-bold">Naturopathy</h2>
+              <div className="flex-grow">
+                <p className="text-lg text-gray-600 mb-4">
+                  Explore the healing power of nature through our naturopathic practices. 
+                  We offer holistic approaches to wellness, combining traditional wisdom 
+                  with modern techniques to help you achieve optimal health and balance.
+                  Our naturopathic treatments address the root causes of health issues,
+                  promoting long-lasting wellness and vitality.
+                </p>
+                <Carousel images={naturopathyImages} />
+              </div>
+              <Link href="/naturopathy" className="inline-block bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors">
+                Learn More About Naturopathy
+              </Link>
+            </div>
+
+            <div className="space-y-6 flex flex-col">
+              <h2 className="text-3xl font-bold">Sewing</h2>
+              <div className="flex-grow">
+                <p className="text-lg text-gray-600 mb-4">
+                  Discover the therapeutic benefits of sewing and textile arts. 
+                  Our creative workshops and courses help you express yourself, 
+                  reduce stress, and create beautiful, handmade items that bring joy to your life.
+                  Through sewing, you'll develop new skills, boost your creativity, and
+                  find a calming, meditative practice that nurtures your well-being.
+                </p>
+                <br ></br>
+                <Carousel images={sewingImages} />
+              </div>
+              <Link href="/sewing" className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors">
+                Explore Sewing Workshops
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="mt-16">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">About Us</h3>
+              <p className="text-gray-600">
+                We are dedicated to promoting natural healing and creative expression through naturopathy and sewing.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><Link href="/" className="hover:text-blue-600">Home</Link></li>
+                <li><Link href="/contact" className="hover:text-blue-600">Contact</Link></li>
+                <li><Link href="/naturopathy" className="hover:text-blue-600">Naturopathy</Link></li>
+                <li><Link href="/sewing" className="hover:text-blue-600">Sewing</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+              <p className="text-gray-600">123 Nature Lane, Creativity City, NC 12345</p>
+              <p className="text-gray-600">Email: info@example.com</p>
+              <p className="text-gray-600">Phone: (123) 456-7890</p>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t text-center text-gray-600">
+            © {new Date().getFullYear()} Marieke Ceeleart. All rights reserved.
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
