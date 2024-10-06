@@ -29,6 +29,10 @@ const frameworks = [
     label: "Massage Therapy",
   },
   {
+    value: "Naturopathy Courses",
+    label: "Naturopathy Courses",
+  },
+  {
     value: "Get in touch !",
     label: "Get in touch",
   },
@@ -55,7 +59,7 @@ function ComboboxDemo() {
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." />
+          <CommandInput placeholder="Search option..." />
           <CommandList>
             <CommandEmpty>No framework found.</CommandEmpty>
             <CommandGroup>

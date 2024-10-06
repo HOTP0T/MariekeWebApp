@@ -24,7 +24,7 @@ export default function Home() {
       <main className="flex-grow">
         <section className="relative h-[60vh] flex items-center justify-center">
           <Image
-            src="/naturopathy.jpg"
+            src="/landing/naturopathy.jpg"
             alt="Hero background"
             layout="fill"
             objectFit="cover"
@@ -65,8 +65,9 @@ export default function Home() {
                   reduce stress&lsquo; and create beautiful&lsquo; handmade items that bring joy to your life.
                   Through sewing&lsquo; you&apos;ll develop new skills&lsquo; boost your creativity&lsquo; and
                   find a calming&lsquo; meditative practice that nurtures your well-being.
+                  <br ></br>
+                  <br ></br>
                 </p>
-                <br ></br>
                 <Carousel images={sewingImages} />
               </div>
               <Link href="/sewing" className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors">

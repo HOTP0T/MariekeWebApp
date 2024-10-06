@@ -7,9 +7,9 @@ import Navbar from '../components/Navbar' // Make sure the path is correct
 
 export default function Naturopathy() {
   const naturopathyImages = [
-    { src: '/placeholder.svg?height=400&width=600&text=Naturopathy 1', alt: 'Naturopathy 1' },
-    { src: '/placeholder.svg?height=400&width=600&text=Naturopathy 2', alt: 'Naturopathy 2' },
-    { src: '/placeholder.svg?height=400&width=600&text=Naturopathy 3', alt: 'Naturopathy 3' },
+    { src: '/naturopathy/IMG_20210825_180320.jpg?height=400&width=600&text=Naturopathy 1', alt: 'Naturopathy 1' },
+    { src: '/naturopathy/IMG_20210825_181547.jpg?height=400&width=600&text=Naturopathy 2', alt: 'Naturopathy 2' },
+    { src: '/sewing/IMG_20210819_142751.jpg?height=400&width=600&text=Naturopathy 3', alt: 'Naturopathy 3' },
   ]
 
   return (
@@ -18,7 +18,7 @@ export default function Naturopathy() {
       <main className="flex-grow">
         <section className="relative h-[40vh] flex items-center justify-center">
           <Image
-            src="/placeholder.svg?height=400&width=1920&text=Naturopathy"
+            src="/naturopathy/Naturopathy-Treatment-980x613.jpg?height=400&width=600&text=Naturopathy"
             alt="Naturopathy banner"
             layout="fill"
             objectFit="cover"

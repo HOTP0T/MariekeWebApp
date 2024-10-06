@@ -23,7 +23,7 @@ export default function Sewing() {
       <main className="flex-grow">
         <section className="relative h-[40vh] flex items-center justify-center">
           <Image
-            src="/placeholder.svg?height=400&width=1920&text=Sewing"
+            src="/sewing/shutterstock_147651662.webp?height=400&width=1920&text=Sewing"
             alt="Sewing banner"
             layout="fill"
             objectFit="cover"
