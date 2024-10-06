@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Carousel from '../components/Carousel' // Make sure the path is correct
 import Navbar from '../components/Navbar' // Make sure the path is correct
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Naturopathy() {
   const naturopathyImages = [
@@ -88,6 +90,8 @@ export default function Naturopathy() {
           </div>
         </div>
       </footer>
+      <Analytics />
+      <SpeedInsights />
     </div>
   )
 }

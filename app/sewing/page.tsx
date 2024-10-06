@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Carousel from '../components/Carousel' // Adjust the path if necessary
 import Navbar from '../components/Navbar'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 
@@ -93,6 +95,8 @@ export default function Sewing() {
           </div>
         </div>
       </footer>
+      <Analytics />
+      <SpeedInsights />
     </div>
   )
 }

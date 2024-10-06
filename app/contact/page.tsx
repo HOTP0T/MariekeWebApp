@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import ComboboxDemo from "../components/combobox"
 import Navbar from '../components/Navbar'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 export default function Contact() {
@@ -82,6 +84,8 @@ export default function Contact() {
           </div>
         </div>
       </footer>
+      <Analytics />
+      <SpeedInsights />
     </div>
   )
 }
