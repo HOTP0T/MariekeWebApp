@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Navbar from './components/Navbar'
 import Carousel from './components/Carousel'
 
-
 export default function Home() {
   const naturopathyImages = [
     { src: '/landing/naturopathy/20201025_113534.jpg?height=400&width=600&text=Naturopathy 1', alt: 'Naturopathy 1' },
