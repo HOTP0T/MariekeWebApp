@@ -37,7 +37,7 @@ export default function Sewing() {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Our Sewing Workshops</h2>
             <p className="text-lg text-gray-600 mb-8">
-              Our sewing workshops provide a hands-on learning experience where participants can learn the basics of sewing, pattern design, and creating custom-made garments. Whether you're a beginner or an experienced sewer, our workshops offer something for everyone.
+              Our sewing workshops provide a hands-on learning experience where participants can learn the basics of sewing&lsquo pattern design&lsquo and creating custom-made garments. Whether you&aposre a beginner or an experienced sewer&lsquo our workshops offer something for everyone.
             </p>
 
             <Carousel images={sewingImages} />

@@ -48,7 +48,7 @@ export default function Naturopathy() {
             </ul>
             <h3 className="text-2xl font-semibold mb-4">Benefits of Naturopathy</h3>
             <p className="text-lg text-gray-600 mb-8">
-              Naturopathic treatments can help with a wide range of health concerns, including chronic diseases, digestive issues, hormonal imbalances, and mental health. By addressing the underlying causes of illness and promoting the body's natural healing abilities, naturopathy can lead to long-lasting improvements in overall health and well-being.
+              Naturopathic treatments can help with a wide range of health concerns, including chronic diseases&lsquo digestive issues, hormonal imbalances, and mental health. By addressing the underlying causes of illness and promoting the body's natural healing abilities&lsquo naturopathy can lead to long-lasting improvements in overall health and well-being.
             </p>
             <div className="text-center">
               <Link href="/contact" className="inline-block bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors">

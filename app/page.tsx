@@ -62,10 +62,10 @@ export default function Home() {
               <div className="flex-grow">
                 <p className="text-lg text-gray-600 mb-4">
                   Discover the therapeutic benefits of sewing and textile arts. 
-                  Our creative workshops and courses help you express yourself, 
-                  reduce stress, and create beautiful, handmade items that bring joy to your life.
-                  Through sewing, you'll develop new skills, boost your creativity, and
-                  find a calming, meditative practice that nurtures your well-being.
+                  Our creative workshops and courses help you express yourself&lsquo 
+                  reduce stress&lsquo and create beautiful&lsquo handmade items that bring joy to your life.
+                  Through sewing&lsquo you'll develop new skills&lsquo boost your creativity&lsquo and
+                  find a calming&lsquo meditative practice that nurtures your well-being.
                 </p>
                 <br ></br>
                 <Carousel images={sewingImages} />
