@@ -16,7 +16,6 @@ export default function Navbar() {
     <header className="bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-6">
         <div className="flex justify-between items-center">
-
           {/* Desktop Links */}
           <div className="hidden md:flex items-center justify-between w-full">
             {/* First group of links */}
@@ -54,10 +53,24 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <button className="md:hidden text-gray-900" onClick={toggleMenu} aria-label="Toggle menu">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile layout */}
+          <div className="md:hidden flex justify-between items-center w-full">
+            {/* Mobile menu button */}
+            <button className="text-gray-900" onClick={toggleMenu} aria-label="Toggle menu">
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            {/* Mobile Avatar */}
+            <div className="flex items-center space-x-2">
+              <div className="text-lg font-semibold text-gray-900">
+                Marieke Ceelaert
+              </div>
+              <Avatar className="w-10 h-10">
+                <AvatarImage src="/contact/1516469448723.png" alt="User Avatar" />
+                <AvatarFallback>MC</AvatarFallback>
+              </Avatar>
+            </div>
+          </div>
         </div>
         
         {/* Mobile menu */}
