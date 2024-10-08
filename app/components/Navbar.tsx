@@ -1,6 +1,5 @@
 'use client'
 
-// import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
@@ -28,6 +27,9 @@ export default function Navbar() {
               <Link href="/contact" className="text-lg font-medium cursor-pointer hover:text-blue-600 transition duration-200">
                 Contact
               </Link>
+              <Link href="/faq" className="text-lg font-medium cursor-pointer hover:text-blue-600 transition duration-200">
+                FAQ
+              </Link>
             </div>
 
             {/* Centered Avatar and Text */}
@@ -53,7 +55,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden text-gray-900" onClick={toggleMenu}>
+          <button className="md:hidden text-gray-900" onClick={toggleMenu} aria-label="Toggle menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -64,6 +66,7 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4 text-lg font-medium">
               <Link href="/" className="cursor-pointer hover:text-blue-600 transition duration-200">Home</Link>
               <Link href="/contact" className="cursor-pointer hover:text-blue-600 transition duration-200">Contact</Link>
+              <Link href="/faq" className="cursor-pointer hover:text-blue-600 transition duration-200">FAQ</Link>
               <Link href="/naturopathy" className="cursor-pointer hover:text-blue-600 transition duration-200">Naturopathy</Link>
               <Link href="/sewing" className="cursor-pointer hover:text-blue-600 transition duration-200">Sewing</Link>
             </div>

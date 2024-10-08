@@ -1,8 +1,7 @@
-"use client"
+'use client'
 
 import * as React from "react"
 import { Check, ChevronsUpDown } from "lucide-react"
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -21,24 +20,20 @@ import {
 
 const frameworks = [
   {
-    value: "Sewing Classes",
-    label: "Sewing Classes",
+    value: "Naturopathy",
+    label: "Naturopathy",
   },
   {
-    value: "Massage Therapy",
-    label: "Massage Therapy",
+    value: "Sewing",
+    label: "Sewing",
   },
   {
-    value: "Naturopathy Courses",
-    label: "Naturopathy Courses",
-  },
-  {
-    value: "Get in touch !",
-    label: "Get in touch",
+    value: "Services",
+    label: "Services",
   },
 ]
 
-function ComboboxDemo() {
+function ComboboxDemo({ onSelect }) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
@@ -61,14 +56,16 @@ function ComboboxDemo() {
         <Command>
           <CommandInput placeholder="Search option..." />
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>No options found.</CommandEmpty>
             <CommandGroup>
               {frameworks.map((framework) => (
                 <CommandItem
                   key={framework.value}
                   value={framework.value}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
+                    const newValue = currentValue === value ? "" : currentValue
+                    setValue(newValue)
+                    onSelect(newValue)  // Trigger the parent callback to update the selected theme
                     setOpen(false)
                   }}
                 >
