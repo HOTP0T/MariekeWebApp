@@ -31,8 +31,8 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Centered Avatar and Text */}
-            <div className="flex items-center space-x-4">
+            {/* Centered Avatar and Text wrapped in a Link */}
+            <Link href="/" className="flex items-center space-x-4">
               <Avatar className="w-14 h-14">
                 <AvatarImage src="/contact/1516469448723.png" alt="User Avatar" />
                 <AvatarFallback>MC</AvatarFallback>
@@ -40,7 +40,7 @@ export default function Navbar() {
               <div className="text-xl font-semibold text-gray-900">
                 Marieke Ceelaert
               </div>
-            </div>
+            </Link>
             
             {/* Second group of links */}
             <div className="flex space-x-8">
@@ -60,8 +60,8 @@ export default function Navbar() {
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Mobile Avatar */}
-            <div className="flex items-center space-x-2">
+            {/* Mobile Avatar and Name wrapped in a Link */}
+            <Link href="/" className="flex items-center space-x-2">
               <div className="text-lg font-semibold text-gray-900">
                 Marieke Ceelaert
               </div>
@@ -69,7 +69,7 @@ export default function Navbar() {
                 <AvatarImage src="/contact/1516469448723.png" alt="User Avatar" />
                 <AvatarFallback>MC</AvatarFallback>
               </Avatar>
-            </div>
+            </Link>
           </div>
         </div>
         
