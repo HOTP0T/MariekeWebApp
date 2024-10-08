@@ -33,7 +33,11 @@ const frameworks = [
   },
 ]
 
-function ComboboxDemo({ onSelect }) {
+interface ComboboxDemoProps {
+  onSelect: (value: string) => void;
+}
+
+function ComboboxDemo({ onSelect }: ComboboxDemoProps) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
