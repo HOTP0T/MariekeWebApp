@@ -33,13 +33,15 @@ const frameworks = [
   },
 ]
 
+export type Category = 'Naturopathy' | 'Sewing' | 'Services';
+
 interface ComboboxDemoProps {
-  onSelect: (value: string) => void;
+  onSelect: (value: Category) => void;
 }
 
 function ComboboxDemo({ onSelect }: ComboboxDemoProps) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = React.useState<Category>("Naturopathy")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -67,9 +69,9 @@ function ComboboxDemo({ onSelect }: ComboboxDemoProps) {
                   key={framework.value}
                   value={framework.value}
                   onSelect={(currentValue) => {
-                    const newValue = currentValue === value ? "" : currentValue
+                    const newValue = currentValue === value ? value : currentValue as Category
                     setValue(newValue)
-                    onSelect(newValue)  // Trigger the parent callback to update the selected theme
+                    onSelect(newValue)
                     setOpen(false)
                   }}
                 >

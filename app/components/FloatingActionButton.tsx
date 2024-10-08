@@ -3,9 +3,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, ChevronDown, ChevronUp } from 'lucide-react';
-import ComboboxDemo from './combobox'; // Importing the modified combobox
+import ComboboxDemo, { Category } from './combobox';
 
-// Define a type for the props of FAQItem
 interface FAQItemProps {
   question: string;
   answer: string;
@@ -46,7 +45,7 @@ const FAQItem = ({ question, answer }: FAQItemProps) => {
 
 const FloatingActionButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<keyof typeof faqData>('Naturopathy'); // Default selection
+  const [selectedCategory, setSelectedCategory] = useState<Category>('Naturopathy');
 
   const faqData = {
     Naturopathy: [
@@ -56,7 +55,7 @@ const FloatingActionButton = () => {
       },
       {
         question: 'What should I expect during a naturopathy consultation?',
-        answer: 'During a consultation, we’ll discuss your health history, current concerns, and lifestyle. We may recommend natural therapies or dietary changes.',
+        answer: 'During a consultation, we\'ll discuss your health history, current concerns, and lifestyle. We may recommend natural therapies or dietary changes.',
       },
       {
         question: 'What services do you offer in naturopathy?',
@@ -93,6 +92,10 @@ const FloatingActionButton = () => {
     ],
   };
 
+  const handleCategoryChange = (category: Category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <AnimatePresence>
@@ -101,15 +104,10 @@ const FloatingActionButton = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="bg-white p-4 rounded-lg shadow-lg mb-4 w-80 h-96 overflow-y-auto" // Fixed width and height
+            className="bg-white p-4 rounded-lg shadow-lg mb-4 w-80 h-96 overflow-y-auto"
           >
             <h3 className="text-lg font-semibold mb-2">Choose a Topic</h3>
-            {/* Dropdown List */}
-            <ComboboxDemo
-              onSelect={setSelectedCategory} // Pass the callback to update selectedCategory
-            />
-
-            {/* Display FAQs based on selected category */}
+            <ComboboxDemo onSelect={handleCategoryChange} />
             <div className="mt-4">
               {faqData[selectedCategory].map((item, index) => (
                 <FAQItem key={index} question={item.question} answer={item.answer} />
