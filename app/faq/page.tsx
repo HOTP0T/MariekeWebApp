@@ -1,13 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Lightbulb, Scissors } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Image from "next/image";
 
-const faqs = [
+interface FAQ {
+  question: string;
+  answer: string;
+  icon: ReactNode;
+}
+
+const faqs: FAQ[] = [
   {
     question: "What is naturopathy?",
     answer:
@@ -40,7 +46,13 @@ const faqs = [
   },
 ];
 
-const FAQItem = ({ question, answer, icon }) => {
+interface FAQItemProps {
+  question: string;
+  answer: string;
+  icon: ReactNode;
+}
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -81,7 +93,11 @@ const FAQItem = ({ question, answer, icon }) => {
   );
 };
 
-const FloatingBubble = ({ children }) => {
+interface FloatingBubbleProps {
+  children: ReactNode;
+}
+
+const FloatingBubble: React.FC<FloatingBubbleProps> = ({ children }) => {
   return (
     <motion.div
       className="absolute"
@@ -122,9 +138,6 @@ export default function FAQ() {
 
         {mounted && (
           <>
-            {/* <FloatingBubble>
-              <Image src="/faq/interro.png" alt="Decorative bubble" width={100} height={100} className="opacity-50" />
-            </FloatingBubble> */}
             <FloatingBubble>
               <Image
                 src="/faq/interro.png"
