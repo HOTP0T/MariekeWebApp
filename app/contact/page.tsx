@@ -1,6 +1,6 @@
-"use client"; // Add this at the top to declare the component as a Client Component
+"use client";
 
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ComboboxDemo from "../components/combobox";
 import Footer from "../components/Footer";
@@ -15,27 +15,32 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = { selectedOption, name, email, message };
 
-    const response = await fetch("/api/contacts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/api/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      setStatus("Message sent successfully!");
-      setSelectedOption("");
-      setName("");
-      setEmail("");
-      setMessage("");
-    } else {
-      setStatus("Failed to send the message.");
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setSelectedOption("");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("Failed to send the message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setStatus("An error occurred while sending the message.");
     }
   };
 
