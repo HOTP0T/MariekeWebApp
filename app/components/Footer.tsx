@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 mt-16">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-gray-600">
@@ -29,14 +29,17 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Stay Connected</h3>
-            <form className="flex mb-4">
+            <form className="flex flex-col sm:flex-row mb-4">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-grow px-3 py-2 rounded-l-md border-t border-b border-l"
+                className="flex-grow px-3 py-2 rounded-t-md sm:rounded-l-md sm:rounded-t-none border-t border-b border-l border-r sm:border-r-0"
                 aria-label="Email for newsletter"
               />
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors" type="submit">
+              <button 
+                className="bg-blue-600 text-white px-4 py-2 rounded-b-md sm:rounded-r-md sm:rounded-b-none hover:bg-blue-700 transition-colors mt-2 sm:mt-0" 
+                type="submit"
+              >
                 Subscribe
               </button>
             </form>
