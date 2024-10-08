@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: 'Marieke Ceeleart',
     images: [
       {
-        url: 'https://marieke-ceeleart.com/og-image.jpg',
+        url: 'https://media.licdn.com/dms/image/v2/C5603AQHR-52WrYwG8g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1516469448779?e=1733961600&v=beta&t=ypt4amijwYfn0W3723CxFUrRpcHpXCA9X1ahsXe1Qrc',
         width: 1200,
         height: 630,
       },
