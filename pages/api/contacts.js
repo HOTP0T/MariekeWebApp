@@ -8,14 +8,14 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "All fields are required" });
     }
 
-    // Configure Nodemailer with Postmark SMTP settings
+    // Configure Nodemailer with Postmark SMTP settings using environment variables
     const transporter = nodemailer.createTransport({
       host: "smtp.postmarkapp.com",
-      port: 587, // You can also try ports 25 or 2525 if needed
-      secure: false, // true for 465, false for other ports
+      port: 587,
+      secure: false,
       auth: {
-        user: "112ad41c-1fcf-4b48-9da5-3d6b52d1c3b8", // Postmark Server Token (Username)
-        pass: "112ad41c-1fcf-4b48-9da5-3d6b52d1c3b8", // Postmark Server Token (Password)
+        user: process.env.POSTMARK_USER,
+        pass: process.env.POSTMARK_PASS,
       },
     });
 
