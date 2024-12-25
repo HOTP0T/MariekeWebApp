@@ -10,7 +10,7 @@ import Image from "next/image";
 interface FAQ {
   question: string;
   answer: string;
-  icon: ReactNode;
+  icon: "naturopathy" | "sewing";
 }
 
 const faqs: FAQ[] = [
@@ -18,42 +18,66 @@ const faqs: FAQ[] = [
     question: "What is naturopathy?",
     answer:
       "Naturopathy is a holistic approach to health and wellness that focuses on natural remedies and the body's innate ability to heal itself. It combines traditional healing methods with modern scientific knowledge to promote overall well-being.",
-    icon: <Lightbulb className="text-green-500" />,
+    icon: "naturopathy",
   },
   {
     question: "How can sewing benefit my mental health?",
     answer:
       "Sewing can be a therapeutic activity that promotes mindfulness, reduces stress, and boosts creativity. It provides a sense of accomplishment and can be a form of self-expression, contributing to improved mental well-being.",
-    icon: <Scissors className="text-blue-500" />,
+    icon: "sewing",
   },
   {
     question: "Do I need any prior experience to join your sewing workshops?",
     answer:
       "No prior experience is necessary for our beginner workshops. We offer classes for all skill levels, from complete beginners to advanced sewers. Our experienced instructors will guide you through each step of the process.",
-    icon: <Scissors className="text-blue-500" />,
+    icon: "sewing",
   },
   {
     question: "What should I expect during a naturopathy consultation?",
     answer:
       "During a naturopathy consultation, we'll discuss your health history, current concerns, and lifestyle factors. We may perform physical examinations and recommend natural therapies, dietary changes, or supplements tailored to your individual needs.",
-    icon: <Lightbulb className="text-green-500" />,
+    icon: "naturopathy",
   },
   {
     question: "How long are your sewing workshops?",
     answer:
       "Our sewing workshops vary in length depending on the project and skill level. Beginner workshops typically last 2-3 hours, while more advanced projects may span multiple sessions. Check our schedule for specific workshop durations.",
-    icon: <Scissors className="text-blue-500" />,
+    icon: "sewing",
   },
 ];
 
 interface FAQItemProps {
   question: string;
   answer: string;
-  icon: ReactNode;
+  icon: "naturopathy" | "sewing";
 }
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const getIcon = (iconType: "naturopathy" | "sewing") => {
+    if (iconType === "naturopathy") {
+      return (
+        <Image
+          src="/naturopathy/Property 1=Leaf.png"
+          alt="Naturopathy icon"
+          width={24}
+          height={24}
+          className="mr-2"
+        />
+      );
+    } else {
+      return (
+        <Image
+          src="/sewing/Property 1=Needle.png"
+          alt="Sewing icon"
+          width={24}
+          height={24}
+          className="mr-2"
+        />
+      );
+    }
+  };
 
   return (
     <motion.div
@@ -67,7 +91,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon }) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="text-lg font-medium flex items-center">
-          {icon}
+          {getIcon(icon)}
           <span className="ml-2">{question}</span>
         </span>
         <motion.div
@@ -124,18 +148,22 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-8 relative overflow-hidden">
-        <motion.h1
-          className="text-4xl font-bold mb-8 text-center text-purple-800"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+      <section className="relative h-[175px] flex items-center justify-center">
+        <Image
+          src="/faq/faq-banner.jpg"
+          alt="FAQ banner"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <h1 className="relative z-10 text-4xl md:text-6xl font-bold text-white">
           Frequently Asked Questions
-        </motion.h1>
-
+        </h1>
+      </section>
+      <main className="flex-grow container mx-auto px-4 py-8 relative overflow-hidden">
         {mounted && (
           <>
             <FloatingBubble>

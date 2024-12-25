@@ -20,14 +20,14 @@ export default function Sewing() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+    <div className="flex flex-col min-h-screen bg-white">
       <header className="bg-white shadow-sm">
         <Navbar />
       </header>
       <main className="flex-grow">
-        <section className="relative h-[40vh] flex items-center justify-center">
+        <section className="relative h-[175px] flex items-center justify-center">
           <Image
-            src="/sewing/shutterstock_147651662.webp?height=400&width=1920&text=Sewing"
+            src="/sewing/shutterstock_147651662.webp"
             alt="Sewing banner"
             layout="fill"
             objectFit="cover"
@@ -70,7 +70,7 @@ export default function Sewing() {
             <div className="text-center">
               <Link
                 href="/contact"
-                className="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors"
+                className="inline-block bg-[#B9BF04] text-white px-6 py-2 rounded hover:bg-[#ADB982] transition-colors"
               >
                 Join a Workshop
               </Link>

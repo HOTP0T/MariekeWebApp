@@ -26,12 +26,12 @@ export default function Naturopathy() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
       <main className="flex-grow">
-        <section className="relative h-[40vh] flex items-center justify-center">
+        <section className="relative h-[175px] flex items-center justify-center">
           <Image
-            src="/naturopathy/Naturopathy-Treatment-980x613.jpg?height=400&width=600&text=Naturopathy"
+            src="/naturopathy/Naturopathy-Treatment-980x613.jpg"
             alt="Naturopathy banner"
             layout="fill"
             objectFit="cover"
@@ -81,7 +81,7 @@ export default function Naturopathy() {
             <div className="text-center">
               <Link
                 href="/contact"
-                className="inline-block bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors"
+                className="inline-block bg-[#B9BF04] text-white px-6 py-2 rounded hover:bg-[#ADB982] transition-colors"
               >
                 Book a Consultation
               </Link>

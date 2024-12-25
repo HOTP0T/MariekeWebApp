@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState } from "react";
+import type { FormEvent } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ComboboxDemo from "../components/combobox";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Image from "next/image";
 
 export default function Contact() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -45,11 +47,24 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
+      <section className="relative h-[175px] flex items-center justify-center">
+        <Image
+          src="/contact/contact-banner.jpg"
+          alt="Contact banner"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <h1 className="relative z-10 text-4xl md:text-6xl font-bold text-white">
+          Contact Us
+        </h1>
+      </section>
       <main className="flex-grow container mx-auto px-4 py-8 flex justify-center items-center">
         <div className="max-w-screen-xl w-full bg-white rounded-lg shadow-lg p-12 relative z-10">
-          <h1 className="text-3xl font-bold mb-6 text-center">Contact Us</h1>
+          <h1 className="text-3xl font-bold mb-6 text-center">Contact Form</h1>
           <div className="flex flex-col md:flex-row gap-20">
             <div className="md:w-3/5">
               <form className="space-y-4" onSubmit={handleSubmit}>
@@ -103,11 +118,11 @@ export default function Contact() {
                     onChange={(e) => setMessage(e.target.value)}
                     className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     required
-                  ></textarea>
+                  />
                 </div>
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors w-full"
+                  className="bg-[#B9BF04] text-white px-4 py-2 rounded hover:bg-[#ADB982] transition-colors w-full"
                 >
                   Send Message
                 </button>
