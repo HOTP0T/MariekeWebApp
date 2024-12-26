@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect } from "react";
+import type { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Navbar from "../components/Navbar";
@@ -66,17 +67,16 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon }) => {
           className="mr-2"
         />
       );
-    } else {
-      return (
-        <Image
-          src="/sewing/Property 1=Needle.png"
-          alt="Sewing icon"
-          width={24}
-          height={24}
-          className="mr-2"
-        />
-      );
     }
+    return (
+      <Image
+        src="/sewing/Property 1=Needle.png"
+        alt="Sewing icon"
+        width={24}
+        height={24}
+        className="mr-2"
+      />
+    );
   };
 
   return (
@@ -87,6 +87,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon }) => {
       transition={{ duration: 0.5 }}
     >
       <button
+        type="button"
         className="flex justify-between items-center w-full text-left"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -131,7 +132,7 @@ const FloatingBubble: React.FC<FloatingBubbleProps> = ({ children }) => {
       }}
       transition={{
         duration: 5,
-        repeat: Infinity,
+        repeat: Number.POSITIVE_INFINITY,
         repeatType: "reverse",
       }}
     >
@@ -188,9 +189,9 @@ export default function FAQ() {
         )}
 
         <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6 relative z-10">
-          {faqs.map((faq, index) => (
+          {faqs.map((faq) => (
             <FAQItem
-              key={index}
+              key={faq.question}
               question={faq.question}
               answer={faq.answer}
               icon={faq.icon}

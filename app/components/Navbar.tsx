@@ -87,6 +87,7 @@ export default function Navbar() {
           <div className="md:hidden flex justify-between items-center w-full">
             {/* Mobile menu button */}
             <button
+              type="button"
               className="text-gray-900"
               onClick={toggleMenu}
               aria-label="Toggle menu"
